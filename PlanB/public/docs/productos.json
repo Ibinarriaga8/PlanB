@@ -1,0 +1,25 @@
+{
+	"item": [
+	  {"id": 1, "name": "BMW Serie 3 320d", "year": 2018, "price": 22000, "mileage": 65000, "status": "Finalizado", "highestBidder": "Usuario123", "endTime": "2024-02-15T18:30:00Z"},
+	  {"id": 2, "name": "Audi A4 2.0 TDI", "year": 2017, "price": 19500, "mileage": 72000, "status": "Finalizado", "highestBidder": "CocheFan88", "endTime": "2024-02-14T16:45:00Z"},
+	  {"id": 3, "name": "Mercedes-Benz C220 CDI", "year": 2019, "price": 25000, "mileage": 40000, "status": "Finalizado", "highestBidder": "BidMaster", "endTime": "2024-02-13T20:00:00Z"},
+	  {"id": 4, "name": "Volkswagen Golf GTI", "year": 2020, "price": 27000, "mileage": 30000, "status": "Finalizado", "highestBidder": "VWGolfer", "endTime": "2024-02-12T14:15:00Z"},
+	  {"id": 5, "name": "Tesla Model 3 Standard Range", "year": 2021, "price": 35000, "mileage": 15000, "status": "Finalizado", "highestBidder": "ElectricCarFan", "endTime": "2024-02-11T12:00:00Z"},
+	  {"id": 6, "name": "Ford Fiesta 1.0 EcoBoost", "year": 2016, "price": 9500, "mileage": 85000, "status": "Finalizado", "highestBidder": "FiestaFan", "endTime": "2024-02-10T15:30:00Z"},
+	  {"id": 7, "name": "Renault Clio RS", "year": 2018, "price": 17000, "mileage": 60000, "status": "Finalizado", "highestBidder": "RS_Lover", "endTime": "2024-02-09T18:00:00Z"},
+	  {"id": 8, "name": "Peugeot 208 GTI", "year": 2019, "price": 18500, "mileage": 35000, "status": "Finalizado", "highestBidder": "GTI_Addict", "endTime": "2024-02-08T17:00:00Z"},
+	  {"id": 9, "name": "Toyota Corolla Hybrid", "year": 2020, "price": 23000, "mileage": 22000, "status": "Finalizado", "highestBidder": "HybridFan", "endTime": "2024-02-07T13:30:00Z"},
+	  {"id": 10, "name": "Honda Civic Type R", "year": 2021, "price": 33000, "mileage": 12000, "status": "Finalizado", "highestBidder": "HondaRacer", "endTime": "2024-02-06T11:00:00Z"},
+	  {"id": 11, "name": "Seat León FR", "year": 2017, "price": 16000, "mileage": 67000, "status": "Finalizado", "highestBidder": "LeonDriver", "endTime": "2024-02-05T19:00:00Z"},
+	  {"id": 12, "name": "Hyundai i30 N", "year": 2018, "price": 21000, "mileage": 48000, "status": "Finalizado", "highestBidder": "SpeedHunter", "endTime": "2024-02-04T16:00:00Z"},
+	  {"id": 13, "name": "Kia Ceed GT", "year": 2019, "price": 18000, "mileage": 37000, "status": "Finalizado", "highestBidder": "KiaFanatic", "endTime": "2024-02-03T12:45:00Z"},
+	  {"id": 14, "name": "Mazda 3 Skyactiv-X", "year": 2020, "price": 24500, "mileage": 25000, "status": "Finalizado", "highestBidder": "MazdaLover", "endTime": "2024-02-02T14:30:00Z"},
+	  {"id": 15, "name": "Nissan Qashqai DIG-T", "year": 2019, "price": 21500, "mileage": 42000, "status": "Finalizado", "highestBidder": "SUVFan", "endTime": "2024-02-01T17:15:00Z"},
+	  {"id": 16, "name": "Volvo XC40 T3", "year": 2021, "price": 32000, "mileage": 19000, "status": "Finalizado", "highestBidder": "SafeDriver", "endTime": "2024-01-31T10:00:00Z"},
+	  {"id": 17, "name": "Skoda Octavia RS", "year": 2017, "price": 17500, "mileage": 69000, "status": "Finalizado", "highestBidder": "OctaviaRS", "endTime": "2024-01-30T18:45:00Z"},
+	  {"id": 18, "name": "Citroën C4 Cactus", "year": 2016, "price": 10500, "mileage": 82000, "status": "Finalizado", "highestBidder": "CitroenFan", "endTime": "2024-01-29T13:00:00Z"},
+	  {"id": 19, "name": "Opel Astra Turbo", "year": 2018, "price": 15000, "mileage": 60000, "status": "Finalizado", "highestBidder": "TurboLover", "endTime": "2024-01-28T16:15:00Z"},
+	  {"id": 20, "name": "Fiat 500 Abarth", "year": 2020, "price": 19000, "mileage": 28000, "status": "Finalizado", "highestBidder": "AbarthFan", "endTime": "2024-01-27T14:00:00Z"}
+	]
+  }
+  

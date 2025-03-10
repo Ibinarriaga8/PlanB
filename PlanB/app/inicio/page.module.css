@@ -1,0 +1,16 @@
+.page {
+    grid-row: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%; /* necesario para centrar verticalmente */
+  }
+  
+  .page form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 2rem;
+    align-items: center;
+  }

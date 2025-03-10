@@ -1,0 +1,23 @@
+.search-bar-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5%;
+}
+
+.search-bar {
+  width: 100%; /* Aumenta el ancho de la barra de búsqueda */
+  padding: 1%;
+  font-size: 12px;
+  border-radius: 3%;
+  border: 1px solid #ffffff;
+  margin-right: 2%;
+  background-color: rgb(255, 255, 255);
+  color: black; /* Cambia el color del texto a negro */
+}
+
+.search-button {
+  padding: 1%;
+  background-color: #ff0202;
+  color: white;
+}
