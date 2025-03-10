@@ -8,11 +8,12 @@ const ResultadoBusqueda = ({ products }) => {
         products.map((product, index) => (
           <div key={index} className={styles['producto-item']}>
             <p>{product.name}</p>
-            {/* Agrega más detalles del producto aquí */}
           </div>
         ))
       ) : (
         <p>No se encontraron productos.</p>
+
+        
       )}
     </div>
   );
