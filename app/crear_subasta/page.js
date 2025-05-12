@@ -14,17 +14,17 @@ export default function CreateAuction() {
   const [categories, setCategories] = useState([]);
   const [categorySelect, setCategory] = useState(null);
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setToken(localStorage.getItem("token-jwt"));
-    }
-  }, []);
+
 
   useEffect(() => {
     const loadCategories = async () => {
       const cats = await fetchCategories();
       setCategories(cats);
     };
+
+    if (typeof window !== "undefined") {
+      setToken(localStorage.getItem("token-jwt"));
+    }
 
     loadCategories();
   }, []);
@@ -55,7 +55,7 @@ export default function CreateAuction() {
       auctioneer_id: userId,
     };
 
-    const result = await docreateAuction(auctionData, accessToken);
+    const result = await docreateAuction(auctionData, token);
 
 
     if (result.error) {
