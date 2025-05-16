@@ -9,3 +9,15 @@
     scale: 1.1;
     transition: 0.4s;
 }
+
+.productCardLastCall {
+    padding: 0.8rem;
+    background-color: rgb(12, 241, 0);
+    margin: 1rem; /* Ajusta este valor según la separación que desees */
+}
+
+.productCardLastCall:hover {
+    background-color: rgb(226, 115, 115);
+    scale: 1.1;
+    transition: 0.4s;
+}

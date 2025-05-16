@@ -20,11 +20,10 @@ const ResultadoBusqueda = ({ products }) => {
           <div className={styles.resultados_busqueda}>
             {products.length > 0 ? (
               products.map((product, index) => (
-                console.log(product),
                 <ProductCard key={index} product={product} />
               ))
             ) : (
-              <p>Cargando...</p>
+              <p>No hay subastas</p>
             )}
           </div>
         </main>

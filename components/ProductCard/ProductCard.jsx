@@ -7,7 +7,7 @@ const ProductCard = ({ product}) => {
     };
 
     return (
-        <button className={styles.productCard} onClick={handleClick}>
+        <button className={product.last_call? styles.productCard : styles.productCardLastCall} onClick={handleClick}>
             <h3>{product.title}</h3>
             <p>${product.price}</p>
             <p>Categoría: {product.category_name}</p>
