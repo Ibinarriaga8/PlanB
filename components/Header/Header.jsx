@@ -13,7 +13,7 @@ const Header = () => {
     const [userName, setUserName] = useState(null);
 
     useEffect(() => {
-        // Acceder a localStorage solo en el cliente
+        // Access localStorage only on the client
         if (typeof window !== 'undefined') {
           setToken(localStorage.getItem("token-jwt"));
           setUserName(localStorage.getItem("userName"));
@@ -21,15 +21,15 @@ const Header = () => {
     }, []);
 
     const handleLogout = async () => doLogout(setToken, setUserName, router);
-    
+
     return (
         <header className={styles.header}>
         <a href="/">
-            <h2>Subastas Plan B</h2>
+            <h2>Plan B Auctions</h2>
         </a>
 
-        <Link href="/todas_subastas" style={{ marginLeft: "20px" }}>
-            Todas las subastas
+        <Link href="/all_auctions" style={{ marginLeft: "20px" }}>
+            All auctions
         </Link>
 
         <nav>
@@ -38,14 +38,14 @@ const Header = () => {
                 {token ? (
                 <>
                     <ul>
-                    <li><a href="/perfil">Mi perfil</a></li>
-                    <li><a href="/misSubastas">Mis Subastas</a></li>
-                    <li><a href="/misPujas">Mis Pujas</a></li>
-                    <li><a href="#" onClick={handleLogout}>Cerrar Sesión</a></li>
+                    <li><a href="/profile">My profile</a></li>
+                    <li><a href="/my_auctions">My Auctions</a></li>
+                    <li><a href="/my_bids">My Bids</a></li>
+                    <li><a href="#" onClick={handleLogout}>Log Out</a></li>
                     </ul>
                 </>
                 ) : (
-                <a href="/inicio">Iniciar Sesión</a>
+                <a href="/login">Log In</a>
                 )}
             </li>
             </ul>

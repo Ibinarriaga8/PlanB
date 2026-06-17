@@ -4,15 +4,15 @@ const CategorySelect = ({ categories, category, setCategory, newCategory, setNew
   return (
     <>
       <select value={category} onChange={(e) => setCategory(e.target.value)} required>
-        <option value = "">Selecciona una categoría</option>
+        <option value="">Select a category</option>
         {categories.map((cat) => (
           <option key={cat.id} value={cat.id}>{cat.name}</option>
         ))}
-        <option value="nueva"> Crear nueva categoría </option>
+        <option value="new"> Create new category </option>
       </select>
 
-      {category === "nueva" && (
-        <input value={newCategory} onChange={e => setNewCategory(e.target.value)} placeholder="Nombre nueva categoría" required/>
+      {category === "new" && (
+        <input value={newCategory} onChange={e => setNewCategory(e.target.value)} placeholder="New category name" required/>
       )}
 
     </>

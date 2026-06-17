@@ -11,7 +11,7 @@ const ProductDetail = ({ product }) => {
         {product.image && (
             <img
               src={`${product.image}`}
-              alt="Imagen de la subasta"
+              alt="Auction image"
               style={{
                   maxWidth: "650px",
                   borderRadius: "10px",
@@ -21,16 +21,16 @@ const ProductDetail = ({ product }) => {
             />
           )}
         <p>{product.description}</p>
-        <p><strong>Marca:</strong> {product.brand}</p>
-        <p><strong>Precio inicial:</strong> ${product.price}</p>
+        <p><strong>Brand:</strong> {product.brand}</p>
+        <p><strong>Starting price:</strong> ${product.price}</p>
         <p><strong>Stock:</strong> {product.stock}</p>
-        <p>Valoración: {product.avg_rating ? product.avg_rating : "Sin valorar"}</p>
-        <p><strong>Estado:</strong> {product.isOpen ? 'Abierta' : 'Cerrada'}</p>
-        <p><strong>Pujas actualmente:</strong> {product.bid_counts}</p>
-        <p><strong>Fecha de creación:</strong> {new Date(product.creation_date).toLocaleString()}</p>  
-        <p><strong>Fecha de cierre:</strong> {new Date(product.closing_date).toLocaleString()}</p>
-        <p><strong>Tiempo restante:</strong> {product.time_left}</p>
-        <p><strong>Subastador:</strong> {product.auctioneer ?? 'No asignado'}</p>
+        <p>Rating: {product.avg_rating ? product.avg_rating : "Not rated"}</p>
+        <p><strong>Status:</strong> {product.isOpen ? 'Open' : 'Closed'}</p>
+        <p><strong>Current bids:</strong> {product.bid_counts}</p>
+        <p><strong>Creation date:</strong> {new Date(product.creation_date).toLocaleString()}</p>
+        <p><strong>Closing date:</strong> {new Date(product.closing_date).toLocaleString()}</p>
+        <p><strong>Time remaining:</strong> {product.time_left}</p>
+        <p><strong>Auctioneer:</strong> {product.auctioneer ?? 'Not assigned'}</p>
         <Comment productoId={product.id} />
       </section>
     </div>

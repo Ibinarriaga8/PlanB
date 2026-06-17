@@ -1,13 +1,13 @@
 export async function fetchCategories() {
-    // Hacer un fetch de las categorías
+    // Fetch categories
     try {
       const res = await fetch("http://localhost:8000/api/auctions/categories/");
       const data = await res.json();
-  
-      // Asegurarse de que data sea un array o contenga uno
+
+      // Ensure data is an array or contains one
       return Array.isArray(data) ? data : data.results || data.categories || [];
     } catch (err) {
-      console.error("Error cargando categorías:", err);
+      console.error("Error loading categories:", err);
       return [];
     }
 }
@@ -15,7 +15,7 @@ export async function fetchCategories() {
 export const fetchProducts = async (category, searchTerm, open, order) => {
   try {
     let url = "http://127.0.0.1:8000/api/auctions";
-    
+
     const queryParams = new URLSearchParams();
     if (category) {
       queryParams.append("category", category);
@@ -43,7 +43,7 @@ export const fetchProducts = async (category, searchTerm, open, order) => {
     return data.results;
 
   } catch (error) {
-    console.error("Error al obtener productos:", error);
+    console.error("Error fetching products:", error);
     return [];
   }
 };

@@ -1,0 +1,32 @@
+.container{
+    padding:1rem;
+}
+
+.header {
+    margin-top: 2rem;
+ 
+}
+.header p{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+.header h2 {
+    color: red;
+    font-family: "Times New Roman", Times, serif;
+    font-style: italic;
+}
+
+
+
+.searchResults {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+

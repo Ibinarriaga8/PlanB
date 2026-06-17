@@ -47,11 +47,11 @@ const SearchBar = ({ setFetchedProducts }) => {
         <input
           type="text"
           name="search"
-          placeholder="Buscar..."
+          placeholder="Search..."
           className={styles.searchBar}
         />
         <button className={styles.searchButton} type="submit">
-          Buscar
+          Search
         </button>
       </form>
       <CategoryFilter categories={categories} onChange={handleCategoryChange} />

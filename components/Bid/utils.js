@@ -1,7 +1,7 @@
 
-export async function createBid(productoId, amount, token) {
+export async function createBid(auctionId, amount, token) {
     try {
-      const response = await fetch(`http://127.0.0.1:8000/api/auctions/${productoId}/bids/`, {
+      const response = await fetch(`http://127.0.0.1:8000/api/auctions/${auctionId}/bids/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -9,17 +9,16 @@ export async function createBid(productoId, amount, token) {
         },
         body: JSON.stringify({ amount: parseFloat(amount) }),
       });
-  
+
       const data = await response.json();
-  
+
       if (!response.ok) {
-        // Devuelve el error para manejarlo donde se llame
-        throw new Error(data?.detail || data?.non_field_errors?.[0] || "Error al pujar");
+        // Returns the error to be handled by the caller
+        throw new Error(data?.detail || data?.non_field_errors?.[0] || "Error placing bid");
       }
-  
-      return data; // Éxito
+
+      return data; // Success
     } catch (err) {
-      throw new Error(err.message || "Error de red al enviar la puja.");
+      throw new Error(err.message || "Network error sending bid.");
     }
   }
-  

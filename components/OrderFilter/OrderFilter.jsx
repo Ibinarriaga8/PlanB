@@ -3,9 +3,9 @@
 const OrderFilter = ({onChange}) => {
   return (
     <select name="orderFilter" required onChange={(e) => onChange(e.target.value)}>
-        <option value="">Ordenar precio</option>
-        <option value="asc">Menor a mayor</option>
-        <option value="desc">Mayor a menor</option>
+        <option value="">Sort by price</option>
+        <option value="asc">Low to high</option>
+        <option value="desc">High to low</option>
     </select>
   );
 };
