@@ -1,10 +1,9 @@
 .footer {
-    padding: 0.5rem;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    text-align: center;
-    grid-row: 3;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+  grid-row: 3;
+  padding: 1.5rem 2rem;
+  background: var(--surface);
+  border-top: 1px solid var(--border-subtle);
+  text-align: center;
+  color: var(--text-tertiary);
+  font-size: 0.85rem;
 }

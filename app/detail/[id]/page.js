@@ -5,7 +5,6 @@ import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
-
 import Bid from "@/components/Bid/Bid";
 import { getUserIdFromToken, fetchAuctionDetail, deleteAuction, createRating, getMyRating, deleteRating, editRating } from "./utils";
 import styles from "./page.module.css";
@@ -36,7 +35,6 @@ const Detail = () => {
       try {
         const data = await fetchAuctionDetail(id);
         setProduct(data);
-        console.log(data.bids)
       } catch (error) {
         console.error("Error loading product:", error);
       }
@@ -45,13 +43,8 @@ const Detail = () => {
     const loadMyRating = async () => {
       try {
         const ratingData = await getMyRating(id, token);
-        const rating = ratingData.rating; // Ensure ratingData has the expected structure
-        const ratingId = ratingData.id; // Ensure ratingData has the expected structure
-
-        setMyRating(rating);
-        setMyRatingId(ratingId); // Ensure ratingData has the expected structure
-
-
+        setMyRating(ratingData.rating);
+        setMyRatingId(ratingData.id);
       } catch (error) {
         console.error("Error loading rating:", error);
       }
@@ -63,59 +56,45 @@ const Detail = () => {
     }
   }, [id, token]);
 
-
-
   const handleOnDelete = async () => {
     await deleteAuction(product.id, token);
-
-  }
+    router.push("/my_auctions");
+  };
 
   const handleOnSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
     const rating = parseInt(formData.get("rating"));
-
     try {
       await createRating(product.id, rating, token);
       router.push("/all_auctions");
-
-
     } catch (error) {
       console.error("Error creating rating:", error);
       setErrorMessage("You have already rated this auction");
     }
-
-  }
+  };
 
   const handleOnRatingDelete = async () => {
     try {
       await deleteRating(product.id, myRatingId, token);
       setMyRating(null);
       setMyRatingId(null);
-
-
     } catch (error) {
       console.error("Error deleting rating:", error);
     }
-  }
+  };
 
   const handleOnRatingEdit = async (event) => {
-
     event.preventDefault();
     const formData = new FormData(event.target);
     const rating = parseInt(formData.get("rating"));
-
     try {
       await editRating(product.id, myRatingId, token, rating);
       setMyRating(rating);
-
-
     } catch (error) {
       setErrorMessage("You have already rated this auction");
     }
-
-  }
-
+  };
 
   return (
     <div>
@@ -126,51 +105,54 @@ const Detail = () => {
           <main className={styles.main}>
 
             {userId === product.auctioneer_id ? (
-              <div>
-                <p>This product is yours</p>
-                <button onClick={handleOnDelete} className={styles.button}>
-                Delete auction
+              <div className={styles.ownerActions}>
+                <p>This is your listing</p>
+                <button
+                  onClick={() => router.push(`/edit_auction/${product.id}`)}
+                  className={styles.button}
+                >
+                  Edit auction
                 </button>
-
-                <button onClick={() => router.push(`/edit_auction/${product.id}`)} className={styles.button}>
-                Edit auction
+                <button
+                  onClick={handleOnDelete}
+                  className={`${styles.button} btn-danger`}
+                >
+                  Delete auction
                 </button>
-
               </div>
-              ) : (
-                <div>
-                  <p>Posted by {product.auctioneer}</p>
-                  <Bid auctionId={product.id} />
-                </div>
-              )}
-
-            {myRatingId ? (
-              <>
-                <p>Your rating: {myRating}</p>
-
-                <form onSubmit={handleOnRatingEdit}>
-                  Edit rating:
-                  <input type="number" name="rating" min="1" max="5" step="1" required />
-                  {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
-                  <button type="submit">Rate</button>
-                </form>
-
-                <button onClick={handleOnRatingDelete} className={styles.button}>Delete rating</button>
-              </>
             ) : (
-              <form onSubmit={handleOnSubmit}>
-                Rate auction:
-                <input type="number" name="rating" min="1" max="5" step="1" required />
-                {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
-                <button type="submit">Rate</button>
-              </form>
+              <div className={styles.bidderSection}>
+                <p>Listed by <strong style={{ color: "var(--text)" }}>{product.auctioneer}</strong></p>
+                <Bid auctionId={product.id} />
+              </div>
             )}
 
-            </main>
+            <div className={styles.ratingSection}>
+              {myRatingId ? (
+                <>
+                  <p>Your rating: {myRating} / 5</p>
+                  <form onSubmit={handleOnRatingEdit}>
+                    <label>Edit rating (1–5)</label>
+                    <input type="number" name="rating" min="1" max="5" step="1" required />
+                    {errorMessage && <p style={{ color: "var(--red)", fontSize: "0.875rem" }}>{errorMessage}</p>}
+                    <button type="submit">Update rating</button>
+                  </form>
+                  <button onClick={handleOnRatingDelete} className="btn-danger">Delete rating</button>
+                </>
+              ) : (
+                <form onSubmit={handleOnSubmit}>
+                  <label>Rate this auction (1–5)</label>
+                  <input type="number" name="rating" min="1" max="5" step="1" required />
+                  {errorMessage && <p style={{ color: "var(--red)", fontSize: "0.875rem" }}>{errorMessage}</p>}
+                  <button type="submit">Submit rating</button>
+                </form>
+              )}
+            </div>
 
+          </main>
         </>
       ) : (
-        <p>Loading...</p>
+        <p style={{ padding: "3rem", textAlign: "center" }}>Loading...</p>
       )}
     </div>
   );

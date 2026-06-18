@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { createBid } from "./utils";
+import styles from "./styles.module.css";
 
 const Bid = ({ auctionId }) => {
   const [amount, setAmount] = useState("");
@@ -29,10 +30,7 @@ const Bid = ({ auctionId }) => {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}
-    >
+    <form onSubmit={handleSubmit} className={styles.bidForm}>
       <input
         type="number"
         step="0.01"
@@ -41,9 +39,9 @@ const Bid = ({ auctionId }) => {
         onChange={(e) => setAmount(e.target.value)}
         required
       />
-      <button type="submit">Bid</button>
-      {message && <p style={{ color: "green" }}>{message}</p>}
-      {error && <p style={{ color: "red" }}>{error}</p>}
+      <button type="submit" className={styles.bidBtn}>Bid</button>
+      {message && <p style={{ color: "var(--green)", fontSize: "0.875rem" }}>{message}</p>}
+      {error   && <p style={{ color: "var(--red)",   fontSize: "0.875rem" }}>{error}</p>}
     </form>
   );
 };

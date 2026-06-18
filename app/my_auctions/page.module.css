@@ -1,10 +1,45 @@
 .layout {
-  display: flex;
-  flex-direction: column;  
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;                
-  margin-bottom: 2rem;
-  margin-top: 1rem;    
+  grid-row: 2;
+  padding: 2.5rem 1.5rem 4rem;
+  max-width: 720px;
+  margin: 0 auto;
+  width: 100%;
 }
 
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.main h2 {
+  margin-bottom: 0;
+}
+
+.auctionItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.1rem 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  transition: border-color 0.15s;
+}
+
+.auctionItem:hover {
+  border-color: var(--accent);
+}
+
+.auctionItem li {
+  font-size: 0.9375rem;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.auctionItem button {
+  flex-shrink: 0;
+  font-size: 0.875rem;
+  padding: 0.45rem 0.9rem;
+}

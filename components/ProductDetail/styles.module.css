@@ -1,21 +1,42 @@
+.ProductDetail {
+  grid-row: 2;
+  max-width: 780px;
+  margin: 2.5rem auto 0;
+  padding: 0 1.5rem;
+}
 
 .ProductDetail h2 {
-  font-size: 1.5rem;
-    margin: 1rem 0;
-    margin-left: 1rem;
-    color: red;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  color: var(--text);
+  margin-bottom: 1.5rem;
 }
 
 .ProductDetail section {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  border: 0.3rem solid brown;
-  border-radius: 1rem;
-  gap: 0.3rem;
-  padding: 1rem;
-  background-color: #cc0b0b;
+  gap: 0.6rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  padding: 1.75rem;
+  box-shadow: var(--shadow);
+}
 
-  max-width: 700px;      
-  margin: 2rem 0 2rem 1rem;  
+.ProductDetail section img {
+  width: 100%;
+  max-width: 640px;
+  border-radius: var(--r-lg);
+  margin-bottom: 0.5rem;
+  object-fit: cover;
+}
+
+.ProductDetail section p {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.ProductDetail section p strong {
+  color: var(--text);
+  font-weight: 600;
 }

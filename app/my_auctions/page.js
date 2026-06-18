@@ -21,7 +21,6 @@ export default function MyAuctions() {
         setLoading(false);
       }
     }
-
     fetchUserAuctions();
   }, []);
 
@@ -32,19 +31,17 @@ export default function MyAuctions() {
 
         {loading ? (
           <p>Loading...</p>
-        ) : (
+        ) : auctions.length > 0 ? (
           <ul>
-            {auctions.length > 0 ? (
-              auctions.map((auction) => (
-                <div key={auction.id} className={styles.layout}>
-                  <li>My auction: {auction.title}</li>
-                  <button onClick={() => router.push(`/detail/${auction.id}`)}>View my auction</button>
-                </div>
-              ))
-            ) : (
-              <p>You have no auctions created.</p>
-            )}
+            {auctions.map((auction) => (
+              <div key={auction.id} className={styles.auctionItem}>
+                <li>{auction.title}</li>
+                <button onClick={() => router.push(`/detail/${auction.id}`)}>View</button>
+              </div>
+            ))}
           </ul>
+        ) : (
+          <p>You have no auctions created.</p>
         )}
       </main>
     </div>

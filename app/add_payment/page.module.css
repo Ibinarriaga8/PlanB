@@ -1,40 +1,46 @@
 .main {
-  width: 100%;
-  padding: 1rem;
-  text-align: center;
+  grid-row: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  justify-content: center;
+  padding: 3rem 1rem;
+}
+
+.card {
+  width: 100%;
+  max-width: 440px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-lg);
+}
+
+.card h3 {
+  margin-bottom: 0.5rem;
+}
+
+.card > p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.75rem;
 }
 
 .form {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  align-items: center;
+  gap: 1rem;
 }
 
-.cardnumber {
-  width: 600%;
-  max-width: 400px;
-  padding: 0.5em;
-  font-size: 1em;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
+.cardnumber { /* inherits global input styles */ }
 
 .submitButton {
-  width: fit-content;
-  padding: 0.5em 1.5em;
-  font-size: 1em;
-  background-color: #444;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.submitButton:hover {
-  background-color: #666;
+  width: 100% !important;
+  padding: 0.75rem !important;
+  font-size: 1rem !important;
+  background: var(--accent) !important;
+  color: var(--accent-fg) !important;
+  border-color: transparent !important;
+  font-weight: 600 !important;
 }

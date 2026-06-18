@@ -1,15 +1,59 @@
 .page {
   grid-row: 2;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  padding: 2.5rem 1.5rem 4rem;
+  max-width: 680px;
+  margin: 0 auto;
   width: 100%;
-  padding: 2rem;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.main > h2 {
+  margin-bottom: 0;
+}
+
+/* Profile info card */
+.infoCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  padding: 1.75rem;
+}
+
+.infoCard p {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+}
+
+.infoCard p:last-child { border-bottom: none; }
+
+.infoCard p strong {
+  color: var(--text);
+  font-weight: 500;
+  min-width: 140px;
+}
+
+/* Section cards */
+.sectionCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  padding: 1.75rem;
 }
 
 .h3Title {
-  margin-top: 2rem;
-  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  margin-bottom: 1.25rem;
+  color: var(--text);
 }
 
 .form {
@@ -18,17 +62,41 @@
   gap: 1rem;
 }
 
-.inputField {
-  padding: 0.2rem;
-  border: 1px solid #ccc;
-  border-radius: 2px;
-}
+.inputField { /* handled globally */ }
 
 .submitButton {
-  padding: 0.5rem;
-  background-color: #d42727;
-  color: white;
-  border-radius: 5px;
+  padding: 0.7rem 1.5rem !important;
+  background: var(--accent) !important;
+  color: var(--accent-fg) !important;
+  border-color: transparent !important;
+  font-weight: 600 !important;
+  align-self: flex-start;
+}
+
+.error   { color: var(--red);   font-size: 0.875rem; }
+.success { color: var(--green); font-size: 0.875rem; }
+
+/* Wallet */
+.walletBalance {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
   margin-bottom: 1rem;
 }
 
+.walletActions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.walletActions form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.walletActions button[type="submit"] {
+  width: 100%;
+  padding: 0.65rem;
+}

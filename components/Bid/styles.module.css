@@ -1,0 +1,30 @@
+.bidForm {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.25rem;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  flex-wrap: wrap;
+}
+
+.bidForm input {
+  flex: 1;
+  min-width: 140px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.bidBtn {
+  padding: 0.65rem 1.5rem !important;
+  background: var(--accent) !important;
+  color: var(--accent-fg) !important;
+  border-color: transparent !important;
+  font-weight: 700 !important;
+  font-size: 1rem !important;
+}
+
+.bidBtn:hover {
+  background: var(--accent-light) !important;
+}

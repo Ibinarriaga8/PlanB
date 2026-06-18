@@ -1,11 +1,43 @@
 .productCard {
-    padding: 0.8rem;
-    background-color: brown;
-    margin: 1rem; /* Ajusta este valor según la separación que desees */
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  text-align: left;
+  cursor: pointer;
+  width: 240px;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  color: var(--text);
 }
 
 .productCard:hover {
-    background-color: rgb(226, 115, 115);
-    scale: 1.1;
-    transition: 0.4s;
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--accent);
+}
+
+.productCard h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.productCard p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* Price line */
+.productCard p:first-of-type {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-top: 0.15rem;
 }

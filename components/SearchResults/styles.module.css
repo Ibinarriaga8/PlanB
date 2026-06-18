@@ -1,32 +1,49 @@
-.container{
-    padding:1rem;
+.container {
+  grid-row: 2;
+  min-height: calc(100dvh - var(--header-h));
 }
 
 .header {
-    margin-top: 2rem;
- 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1.75rem 1.5rem 1rem;
 }
-.header p{
-    font-family: 'Times New Roman', Times, serif;
-}
-
 
 .header h2 {
-    color: red;
-    font-family: "Times New Roman", Times, serif;
-    font-style: italic;
+  font-size: 1.5rem;
+  color: var(--text);
+  font-style: normal;
+  font-family: inherit;
 }
 
+.header p {
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+  margin-top: 0.15rem;
+}
 
+.createAuction {
+  background: var(--accent) !important;
+  color: var(--accent-fg) !important;
+  border-color: transparent !important;
+  font-weight: 600 !important;
+  padding: 0.55rem 1.15rem !important;
+}
+
+.createAuction:hover {
+  background: var(--accent-light) !important;
+}
+
+.main {
+  padding: 0 1.5rem 4rem;
+}
 
 .searchResults {
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    margin-top: 0.5rem;
-    margin-bottom: 2rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1.25rem;
 }
-
-

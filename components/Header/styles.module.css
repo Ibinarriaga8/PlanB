@@ -1,20 +1,113 @@
 .header {
-    background-color: rgba(0, 0, 0, 0.5);
-    grid-row: 1;
-    padding: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 999999;
+  grid-row: 1;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 0 2rem;
+  background: rgba(9, 9, 11, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-subtle);
 }
 
-.header nav {
-    display: flex;
-    justify-content: flex-end;
-    flex-grow: 1;
+@media (prefers-color-scheme: light) {
+  .header {
+    background: rgba(245, 245, 247, 0.85);
+  }
 }
 
-.header SearchBar{
-    display:flex;
-    justify-content: center;
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.brand h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.brand h2 span {
+  color: var(--accent);
+}
+
+.allAuctions {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--r-sm);
+  transition: color 0.15s, background 0.15s;
+  white-space: nowrap;
+}
+
+.allAuctions:hover {
+  color: var(--text);
+  background: var(--surface-2);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.nav ul {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.nav li {
+  list-style: none;
+}
+
+.nav a {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--r-sm);
+  transition: color 0.15s, background 0.15s;
+  white-space: nowrap;
+}
+
+.nav a:hover {
+  color: var(--text);
+  background: var(--surface-2);
+}
+
+.loginBtn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 1rem;
+  background: var(--accent);
+  color: var(--accent-fg) !important;
+  border-radius: var(--r);
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: background 0.15s !important;
+}
+
+.loginBtn:hover {
+  background: var(--accent-light) !important;
+  color: var(--accent-fg) !important;
+}
+
+.logoutLink {
+  color: var(--text-tertiary) !important;
+}
+.logoutLink:hover {
+  color: var(--red) !important;
+  background: var(--red-dim) !important;
 }

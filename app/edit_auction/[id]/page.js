@@ -28,7 +28,6 @@ export default function EditAuctionPage() {
       const cats = await fetchCategories();
       setCategories(cats);
     };
-
     loadCategories();
   }, []);
 
@@ -52,11 +51,10 @@ export default function EditAuctionPage() {
         setError("Please enter the name of the new category");
         return;
       }
-
       try {
         const created = await createCategories(newcategory, token);
         finalCategoryId = created.id;
-        setCategories([...categories, created]); // optional: update local list
+        setCategories([...categories, created]);
       } catch (err) {
         setError(err.message);
         return;
@@ -65,79 +63,64 @@ export default function EditAuctionPage() {
       finalCategoryId = parseInt(categorySelect);
     }
 
-
-    // const auctionData = {
-    //   title: formData.get("title"),
-    //   description: formData.get("description"),
-    //   closing_date: new Date(formData.get("closing_date")).toISOString(),
-    //   thumbnail: formData.get("thumbnail"),
-    //   price: formData.get("price"),
-    //   stock: parseInt(formData.get("stock")),
-    //   category: finalCategoryId,
-    //   brand: formData.get("brand"),
-    //   auctioneer_id: userId,
-
-    // };
     formData.set("closing_date", new Date(formData.get("closing_date")).toISOString());
     formData.set("category", finalCategoryId);
 
-
-    //const result = await doEditAuction(id, auctionData, token);
     const result = await doEditAuction(id, formData, token);
 
     if (result.error) {
       setError(result.error);
     } else {
       setSuccess("✅ Auction updated successfully");
-      setTimeout(() => {
-        router.push("/");
-      }, 2000);
+      setTimeout(() => router.push("/"), 2000);
     }
   };
 
-  if (!token) return <p>You must log in to edit an auction.</p>;
+  if (!token) return (
+    <div className={styles.wrapper}>
+      <div className={styles.card}>
+        <p>You must log in to edit an auction.</p>
+      </div>
+    </div>
+  );
 
   return (
-    <div>
-      <h2>Edit auction #{id}</h2>
+    <div className={styles.wrapper}>
+      <div className={styles.card}>
+        <h2>Edit auction #{id}</h2>
 
-      {error && (
-        <div>
-          {typeof error === "string" ? (
-            <p>{error}</p>
-          ) : (
-            Object.entries(error).map(([field, messages]) => (
-              <p key={field}>
-                {field}: {
-                  Array.isArray(messages)
-                    ? messages.join(", ")
-                    : typeof messages === "object"
-                      ? JSON.stringify(messages)
-                      : messages
-                }
-              </p>
-            ))
-          )}
-        </div>
-      )}
+        {error && (
+          <div style={{ color: "var(--red)", fontSize: "0.875rem", margin: "1rem 0" }}>
+            {typeof error === "string" ? (
+              <p>{error}</p>
+            ) : (
+              Object.entries(error).map(([field, messages]) => (
+                <p key={field}>{field}: {Array.isArray(messages) ? messages.join(", ") : typeof messages === "object" ? JSON.stringify(messages) : messages}</p>
+              ))
+            )}
+          </div>
+        )}
 
-      {success && <p>{success}</p>}
+        {success && <p style={{ color: "var(--green)", margin: "1rem 0" }}>{success}</p>}
 
-      <form onSubmit={handleOnSubmit} className={styles.form}>
-        <input name="title" placeholder="Title" required />
-        <textarea name="description" placeholder="Description" required />
-        <label htmlFor="closing_date">Closing date:</label>
-        <input type="datetime-local" name="closing_date" required />
-        <input type="file" name="image" accept="image/*" required placeholder="Image"/>
-        <input name="price" type="number" step="0.01" placeholder="Starting price" required />
-        <input name="stock" type="number" placeholder="Stock" required />
-
-        <label htmlFor="category">Category:</label>
-        <CategorySelect categories={categories} category={categorySelect} setCategory={setCategory} newCategory={newcategory} setNewCategory={setNewCategory}/>
-
-        <input name="brand" placeholder="Brand" required />
-        <button type="submit">Save changes</button>
-      </form>
+        <form onSubmit={handleOnSubmit} className={styles.form}>
+          <input name="title" placeholder="Title" required />
+          <textarea name="description" placeholder="Description" required />
+          <div>
+            <label htmlFor="closing_date">Closing date</label>
+            <input type="datetime-local" name="closing_date" required />
+          </div>
+          <input type="file" name="image" accept="image/*" required />
+          <input name="price" type="number" step="0.01" placeholder="Starting price (€)" required />
+          <input name="stock" type="number" placeholder="Stock" required />
+          <div>
+            <label htmlFor="category">Category</label>
+            <CategorySelect categories={categories} category={categorySelect} setCategory={setCategory} newCategory={newcategory} setNewCategory={setNewCategory}/>
+          </div>
+          <input name="brand" placeholder="Brand" required />
+          <button type="submit">Save changes</button>
+        </form>
+      </div>
     </div>
   );
 }

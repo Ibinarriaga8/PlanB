@@ -1,11 +1,72 @@
-
 .main {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem; 
-    margin-left: 1.5rem;
-    width: fit-content; 
-    justify-content: center;
-    padding-bottom: 10%;
+  max-width: 780px;
+  margin: 1.75rem auto 4rem;
+  padding: 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 
+.ownerActions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+}
+
+.ownerActions p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-right: auto;
+}
+
+.button {
+  padding: 0.55rem 1.1rem;
+  font-size: 0.9rem;
+}
+
+.bidderSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+}
+
+.bidderSection > p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.ratingSection {
+  padding: 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.ratingSection form {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.ratingSection form input {
+  width: 80px;
+}
+
+.ratingSection > p {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text);
+}

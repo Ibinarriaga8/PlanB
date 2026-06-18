@@ -1,41 +1,249 @@
+/* ─── Design Tokens ───────────────────────────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg:            #09090B;
+  --bg-subtle:     #111113;
+  --surface:       #1C1C1E;
+  --surface-2:     #242428;
+  --border:        #2C2C30;
+  --border-subtle: #222226;
+
+  --text:          #F5F5F7;
+  --text-secondary:#86868B;
+  --text-tertiary: #555558;
+
+  --accent:        #D4A847;
+  --accent-light:  #E8C269;
+  --accent-dim:    rgba(212, 168, 71, 0.14);
+  --accent-fg:     #09090B;
+
+  --red:           #FF453A;
+  --red-dim:       rgba(255, 69, 58, 0.15);
+  --green:         #30D158;
+  --green-dim:     rgba(48, 209, 88, 0.15);
+
+  --r:             10px;
+  --r-sm:          6px;
+  --r-lg:          14px;
+  --r-xl:          20px;
+
+  --shadow:        0 4px 16px rgba(0,0,0,0.55);
+  --shadow-lg:     0 12px 32px rgba(0,0,0,0.65);
+
+  --header-h:      64px;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-    
+    --bg:            #F5F5F7;
+    --bg-subtle:     #FFFFFF;
+    --surface:       #FFFFFF;
+    --surface-2:     #F2F2F4;
+    --border:        #D2D2D7;
+    --border-subtle: #E8E8ED;
+
+    --text:          #1D1D1F;
+    --text-secondary:#6E6E73;
+    --text-tertiary: #A1A1A6;
+
+    --accent:        #B8882B;
+    --accent-light:  #D4A847;
+    --accent-dim:    rgba(184, 136, 43, 0.1);
+    --accent-fg:     #FFFFFF;
+
+    --red:           #FF3B30;
+    --red-dim:       rgba(255, 59, 48, 0.1);
+    --green:         #34C759;
+    --green-dim:     rgba(52, 199, 89, 0.1);
+
+    --shadow:        0 2px 12px rgba(0,0,0,0.1);
+    --shadow-lg:     0 8px 24px rgba(0,0,0,0.14);
   }
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
+/* ─── Reset ───────────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html,body {
-  color: var(--foreground);
-  background: var(--background);
-  grid-template-rows: auto 1fr auto;
-  display: grid;
-  height: 100 vh; 
-  padding-top: rem;
-  font-family: Arial, Helvetica, sans-serif; 
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+}
+@media (prefers-color-scheme: light) { html { color-scheme: light; } }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-geist-sans, system-ui, -apple-system, sans-serif);
+  font-size: 16px;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: var(--header-h) 1fr auto;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+/* ─── Typography ──────────────────────────────────────────────────────────── */
+h1, h2, h3, h4 { line-height: 1.25; font-weight: 700; letter-spacing: -0.02em; }
+h1 { font-size: clamp(1.75rem, 4vw, 2.5rem); }
+h2 { font-size: clamp(1.3rem, 3vw, 1.75rem); }
+h3 { font-size: 1.2rem; }
+h4 { font-size: 1rem; }
+
+p { color: var(--text-secondary); line-height: 1.7; }
+
+a { color: inherit; text-decoration: none; transition: color 0.15s; }
+a:hover { color: var(--accent); }
+
+/* ─── Form elements ───────────────────────────────────────────────────────── */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+input[type="datetime-local"],
+input[type="file"],
+textarea,
+select {
+  width: 100%;
+  padding: 0.65rem 0.9rem;
+  background: var(--surface-2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  font-size: 0.9375rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  appearance: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+input::placeholder,
+textarea::placeholder { color: var(--text-tertiary); }
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-dim);
 }
+
+input[type="file"] {
+  padding: 0.5rem 0.9rem;
+  cursor: pointer;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 0.35rem;
+}
+
+/* ─── Buttons ─────────────────────────────────────────────────────────────── */
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1.2rem;
+  background: var(--surface-2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s, border-color 0.15s, transform 0.1s, box-shadow 0.15s;
+}
+button:hover  { background: var(--surface); border-color: var(--text-tertiary); }
+button:active { transform: scale(0.98); }
+
+button[type="submit"] {
+  background: var(--accent);
+  color: var(--accent-fg);
+  border-color: transparent;
+  font-weight: 600;
+}
+button[type="submit"]:hover {
+  background: var(--accent-light);
+  border-color: transparent;
+}
+
+/* Danger variant – add className="btn-danger" in JSX */
+.btn-danger {
+  background: var(--red-dim) !important;
+  color: var(--red) !important;
+  border-color: rgba(255,69,58,0.3) !important;
+}
+.btn-danger:hover {
+  background: var(--red) !important;
+  color: #fff !important;
+  border-color: transparent !important;
+}
+
+/* ─── Layout helpers ──────────────────────────────────────────────────────── */
+.page-wrap {
+  grid-row: 2;
+  padding: 2.5rem 1.5rem 4rem;
+  max-width: 960px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.form-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  padding: 2rem 2.5rem;
+  box-shadow: var(--shadow);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.field-set {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.error-msg  { color: var(--red);   font-size: 0.875rem; margin-top: 0.25rem; }
+.success-msg{ color: var(--green); font-size: 0.875rem; margin-top: 0.25rem; }
+
+/* ─── Status badges ───────────────────────────────────────────────────────── */
+.badge-open {
+  display: inline-block;
+  padding: 0.2rem 0.65rem;
+  background: var(--green-dim);
+  color: var(--green);
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.badge-closed {
+  display: inline-block;
+  padding: 0.2rem 0.65rem;
+  background: var(--red-dim);
+  color: var(--red);
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+ul { list-style: none; }

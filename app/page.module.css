@@ -1,16 +1,66 @@
-.page {
+.hero {
+  grid-row: 2;
+  position: relative;
   display: flex;
-    min-width: 90%;
-  
-  }
-  
-  
-  
-  .main img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Asegura que la imagen cubra todo el contenedor */
-  }
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100dvh - var(--header-h));
+  overflow: hidden;
+}
+
+.heroImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  filter: brightness(0.45);
+}
+
+.heroOverlay {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  max-width: 640px;
+}
+
+.heroOverlay h1 {
+  font-size: clamp(2.25rem, 6vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #fff;
+  margin-bottom: 0.75rem;
+}
+
+.heroOverlay h1 span {
+  color: var(--accent);
+}
+
+.heroOverlay p {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 2rem;
+}
+
+.heroBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  background: var(--accent);
+  color: var(--accent-fg);
+  border-radius: var(--r-lg);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.heroBtn:hover {
+  background: var(--accent-light);
+  color: var(--accent-fg);
+  transform: translateY(-2px);
+}

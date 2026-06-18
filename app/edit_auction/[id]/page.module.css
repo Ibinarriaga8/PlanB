@@ -1,8 +1,36 @@
-.form{
-    margin-top: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-    padding: 2rem;
-    align-items: center;
+.wrapper {
+  grid-row: 2;
+  display: flex;
+  justify-content: center;
+  padding: 2.5rem 1rem 4rem;
+}
+
+.card {
+  width: 100%;
+  max-width: 560px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  padding: 2.5rem;
+  box-shadow: var(--shadow);
+}
+
+.card h2 {
+  margin-bottom: 2rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: stretch;
+  margin: 0;
+  padding: 0;
+}
+
+.form button[type="submit"] {
+  margin-top: 0.5rem;
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1rem;
 }
